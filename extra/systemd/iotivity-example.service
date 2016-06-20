@@ -1,0 +1,10 @@
+[Unit]
+Description="Iotivity example server"
+After=network.target
+
+[Service]
+ExecStart=/opt/iotivity-example/bin/server
+Restart=always
+
+[Install]
+WantedBy=default.target
