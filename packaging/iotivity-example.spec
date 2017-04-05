@@ -3,9 +3,9 @@ Version:        1.1.0
 Release:        0
 License:        Apache-2.0
 Summary:        Very minimalist example of IoTivity resource
-Url:            http://github.com/TizenTeam/iotivity-example
+Url:            http://git.s-osg.org/iotivity-example/plain/README.md
 Group:          System/Libraries
-#X-Vc-Url:      http://github.com/TizenTeam/iotivity-example
+#X-Vc-Url:      http://git.s-osg.org/iotivity-example
 Group:          Contrib
 Source:         %{name}-%{version}.tar.gz
 
