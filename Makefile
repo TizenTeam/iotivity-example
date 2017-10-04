@@ -77,8 +77,8 @@ server?=${local_bindir}/server
 
 observer?=${local_bindir}/observer
 
-exes?=${client} ${observer}
-exes+=${server}
+exes?=${server}
+exes+=${client} ${observer}
 all+=${exes}
 
 
