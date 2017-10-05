@@ -1,4 +1,3 @@
-PR = "r0"
 SUMMARY = "IoTivity Example"
 DESCRIPTION = "Minimalist Iotivity Client/Server application"
 HOMEPAGE = "http://git.s-osg.org/iotivity-example"
@@ -6,13 +5,15 @@ SECTION = "apps"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRCREV = "example/master"
-SRC_URI = "git://git.s-osg.org/iotivity-example;nobranch=1;protocol=http"
+branch = "switch/master"
+SRC_URI = "git://git.s-osg.org/iotivity-example;branch=${branch};protocol=http"
 
 # TODO: Overide for local development ie:
 # SRC_URI = "git:///home/user/mnt/iotivity-example;nobranch=1;protocol=file"
 
-S = "${WORKDIR}/git"
+SRCREV  = "${AUTOREV}"
+PV = "0+git${SRCPV}"
+S  = "${WORKDIR}/git"
 
 inherit systemd pkgconfig
 
