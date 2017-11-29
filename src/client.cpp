@@ -144,11 +144,19 @@ void IoTClient::start()
     string coap_multicast_discovery = string(OC_RSRVD_WELL_KNOWN_URI);
 
     OCConnectivityType connectivityType(CT_ADAPTER_IP);
-    OCPlatform::findResource("", //
-                             coap_multicast_discovery.c_str(),
-                             connectivityType,
-                             m_FindCallback,
-                             OC::QualityOfService::LowQos);
+    try
+    {
+        OCPlatform::findResource("", //
+                                 coap_multicast_discovery.c_str(),
+                                 connectivityType,
+                                 m_FindCallback,
+                                 OC::QualityOfService::LowQos);
+    }
+    catch (OCException &e)
+    {
+        cerr << "error: Exception: " << e.what();
+        exit(1);
+    }
 }
 
 shared_ptr<Resource> IoTClient::getResource()
@@ -195,17 +203,22 @@ void IoTClient::onFind(shared_ptr<OCResource> resource)
 
 void IoTClient::print(shared_ptr<OCResource> resource)
 {
+    LOG();
     cerr << "log: Resource: uri: " << resource->uri() << endl;
     cerr << "log: Resource: host: " << resource->host() << endl;
 
     for (auto &type : resource->getResourceTypes())
     {
-        cerr << "log: Resource: type: " << type << endl << endl;
+        cerr << "log: Resource: type: " << type << endl;
     }
 
     for (auto &interface : resource->getResourceInterfaces())
     {
         cerr << "log: Resource: interface: " << interface << endl;
+    }
+    for (auto &endpoint : resource->getAllHosts())
+    {
+        cerr << "log: Resource: endpoint: " << endpoint << endl;
     }
 }
 
