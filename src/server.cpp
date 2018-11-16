@@ -277,6 +277,7 @@ int IoTServer::main(int argc, char *argv[])
 #ifdef CONFIG_SERVER_MAIN
 int main(int argc, char *argv[])
 {
+    LOG();
     return IoTServer::main(argc, argv);
 }
 #endif
