@@ -128,7 +128,7 @@ void IoTClient::init()
 
     m_platformConfig = make_shared<PlatformConfig>
                        (ServiceType::InProc, //
-                        ModeType::Client, //
+                        ModeType::Both, //
                         "0.0.0.0", //
                         0, //
                         OC::QualityOfService::LowQos //
@@ -312,7 +312,7 @@ bool IoTClient::setValue(bool value)
 
 int IoTClient::main(int argc, char *argv[])
 {
-    IoTClient::getInstance()->start();
+    LOG();
 
     for (int i = 1; i < argc; i++)
     {
@@ -321,6 +321,8 @@ int IoTClient::main(int argc, char *argv[])
             Common::m_logLevel++;
         }
     }
+    cerr<<Common::m_logLevel<<endl;
+    IoTClient::getInstance()->start();
 
     int choice;
     do
@@ -352,6 +354,7 @@ int IoTClient::main(int argc, char *argv[])
 #ifdef CONFIG_CLIENT_MAIN
 int main(int argc, char *argv[])
 {
+    LOG();
     return IoTClient::main(argc, argv);
 }
 #endif
