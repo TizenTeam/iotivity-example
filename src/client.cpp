@@ -216,10 +216,6 @@ void IoTClient::print(shared_ptr<OCResource> resource)
     {
         cerr << "log: Resource: interface: " << interface << endl;
     }
-    for (auto &endpoint : resource->getAllHosts())
-    {
-        cerr << "log: Resource: endpoint: " << endpoint << endl;
-    }
 }
 
 void IoTClient::onObserve(const HeaderOptions headerOptions, const OCRepresentation &rep,
