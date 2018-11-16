@@ -86,11 +86,11 @@ OCStackResult IoTServer::createResource(string uri, string type, EntityHandler h
     uint8_t resourceFlag = OC_DISCOVERABLE | OC_OBSERVABLE;
     try
     {
-        result = OCPlatform::registerResource // resource to be discovered
-                 (handle,
-                  resourceUri, resourceType,
-                  resourceInterface, //
-                  handler, resourceFlag);
+        result = OCPlatform::registerResource//
+                 ( handle,
+                   resourceUri, resourceType,
+                   resourceInterface, //
+                   handler, resourceFlag);
 
         if (result != OC_STACK_OK)
             cerr << "error: Could not create " << type << " resource" << endl;
