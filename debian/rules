@@ -22,7 +22,8 @@ default: rule/debuild
 
 # Comment this to turn off verbose mode.
 export DH_VERBOSE=1
-project?=iotivity
+
+project?=iotivity-example
 version?=$(shell [ -r debian/changelog ] && dpkg-parsechangelog \
 	| grep "Version:" | sed -e "s/Version: \(.*\)-.*/\1/g" \
 	|| echo "0.0.0")
