@@ -147,7 +147,7 @@ iotivity: ${include_dir}
 ${srcs_all}: ${iotivity_dir}
 
 run/%: ${local_bindir}/%
-	${<D}/${<F}
+	${<D}/${<F} ${run_args}
 
 xterm/% : ${local_bindir}/%
 	xterm -e ${MAKE} run/${@F} &
